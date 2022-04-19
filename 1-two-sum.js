@@ -51,15 +51,20 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
  */
  var twoSum = function(nums, target) {
   for (let i = 0; i < nums.length; i++) {
-    let k = 0;
-    while (k < nums.length) {
-      if (k !== i && nums[k] + nums[i] === Number(target) ) {
-        return [i, k]; 
-      }
-      k++;
+    const numTwo = target - nums[i];
+    if (nums.includes(numTwo) && nums.indexOf(numTwo) !== i) {
+      return [i, nums.indexOf(numTwo)]
     }
-
-  }  
+  }
 };
 
 console.log(twoSum([2,7,11,15], 26));
+
+/*
+Success
+Details 
+Runtime: 250 ms, faster than 10.30% of JavaScript online submissions for Two Sum.
+Memory Usage: 42.6 MB, less than 64.70% of JavaScript online submissions for Two Sum.
+Next challenges:
+
+*/
